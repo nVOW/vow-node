@@ -1,0 +1,1 @@
+exports.index = Config.apiHost + '';
