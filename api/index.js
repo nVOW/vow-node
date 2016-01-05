@@ -1,1 +1,1 @@
-exports.index = Config.apiHost + '';
+exports.getCharacter = config.apiHost + '/vow/character/query';

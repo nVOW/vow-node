@@ -8,8 +8,7 @@ var compression = require('compression');
 var _ = require('lodash');
 var loader = require('loader');
 var config = require('./config');
-
-var router = require('./routes/index');
+var proxy = require('./lib/proxy');
 
 var app = express();
 
@@ -19,7 +18,7 @@ app.set('view engine', 'html');
 app.engine('html', require('ejs-mate'));
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -29,9 +28,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // global extend
 _.extend(global, {
-  Config: config,
-  Loader: loader
+  config: config,
+  Loader: loader,
+  proxy: proxy
 });
+
+// router
+var router = require('./routes/index');
 router(app);
 
 // catch 404 and forward to error handler

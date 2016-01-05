@@ -5,7 +5,7 @@ module.exports = [
   {
     name: '',
     entry: [
-      './src/js/index.js'
+      __dirname + '/src/js/index.js'
     ],
     output: {
       path: path.join(__dirname, './dist/js'),
