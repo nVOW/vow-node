@@ -9,16 +9,12 @@ var gulpUtil = require('gulp-util');
 var webpack = require('webpack');
 
 gulp.task('sass:build', function () {
-  return sass(__dirname + '/public/src/sass/', { style: 'compressed', noCache: true })
+  return sass(__dirname + '/public/src/sass/**/*.scss', { style: 'compressed', noCache: true})
     .on('error', function (err) {
       console.error('Error!', err.message);
     })
     .pipe(autoprefixer())
     .pipe(gulp.dest(__dirname + '/public/dist/css'));
-});
-
-gulp.task('sass:watch', function () {
-  gulp.watch(__dirname + 'public/sass/*/*/*.scss', ['sass:build']);
 });
 
 var webpackConfig = require('./public/webpack.config');

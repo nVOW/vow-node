@@ -32,6 +32,7 @@ _.extend(global, {
   Loader: loader,
   proxy: proxy
 });
+app.locals._layoutFile = 'layouts/layout.html';
 
 // router
 var router = require('./routes/index');

@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/dist/css/style.css' />
-    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/dist/js/index.bundle.js"></script>
-  </head>
-  <body>
-    <ul id="characterList"></ul>
-  </body>
-</html>
+<%-
+Loader()
+.css('/dist/css/index.css')
+.js('/dist/js/index.bundle.js')
+.done()
+%>
+<ul id="characterList"></ul>
