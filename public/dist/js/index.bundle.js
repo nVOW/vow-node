@@ -57,12 +57,14 @@
 	      this.bindEvent();
 	      this.getCharacter({}, function(data){
 	        var $characterList = $('#characterList');
+	        var temp = [];
 	        data.rows.forEach(function(item){
-	          $characterList.append('<li><img src="' + item.imgUrl +
+	          temp.push('<li><img src="' + item.imgUrl +
 	          '" data-static-url="' + item.imgUrl +
 	          '" data-dynamic-url="' + item.gifUrl +
 	          '"><div class="character-name">' + item.name + '</div></li>');
 	        });
+	        $characterList.find('.character-add').parent().before(temp.join(''));
 	      });
 	    },
 	    bindEvent: function(){

@@ -1,14 +1,19 @@
 @import "./common/_common";
+@import "./common/_autoprefix";
 
 ul{
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
-  padding: 1rem;
+  z-index: 10;
+  position: relative;
+  margin-top: 493px;
+  width: 975px;
   li{
     display: inline-block;
     padding: .25rem;
     cursor: pointer;
+    vertical-align: top;
     img{
       width: 5rem;
       height: 5rem;
@@ -17,6 +22,35 @@ ul{
       font-size: .7rem;
       color: #fff;
       text-align: center;
+    }
+    .character-add{
+      width: 5rem;
+      height: 5rem;
+      display: block;
+      background-image: url(/images/add.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      &:hover{
+        @include animation(rock 1s ease 1);
+      }
+      @keyframes rock{
+        0%,80%,100%{
+          @include rotateZ(0);
+        }
+        10%,70%{
+          @include rotateZ(90deg);
+        }
+        20%,60%,90%{
+          @include rotateZ(180deg);
+        }
+        30%,50%{
+          @include rotateZ(270deg);
+        }
+        40%{
+          @include rotateZ(360deg);
+        }
+      }
     }
   }
 }
